@@ -1,14 +1,14 @@
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
-const ProductTable = (props) => {
-  const row = [];
+const ProductTable = ({ products, value, stockOnly }) => {
   let lastCategory = null;
 
-  props.products.forEach((product) => {
-    if (product.name.toLowerCase().indexOf(props.value.toLowerCase()) === -1) {
+  let rows = products.map((product) => {
+    let row = [];
+    if (product.name.toLowerCase().indexOf(value.toLowerCase()) === -1) {
       return;
     }
-    if (props.stockOnly && !product.stocked) {
+    if (stockOnly && !product.stocked) {
       return;
     }
     if (product.category !== lastCategory) {
@@ -22,6 +22,7 @@ const ProductTable = (props) => {
 
     row.push(<ProductRow key={product.name} product={product} />);
     lastCategory = product.category;
+    return row;
   });
 
   return (
@@ -32,7 +33,7 @@ const ProductTable = (props) => {
           <th>Price</th>
         </tr>
       </thead>
-      <tbody>{row}</tbody>
+      <tbody>{rows}</tbody>
     </table>
   );
 };

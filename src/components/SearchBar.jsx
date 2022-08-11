@@ -1,18 +1,14 @@
-const SearchBar = (props) => {
+const SearchBar = ({ value, stockOnly, handleInputChange, onInstockOnly }) => {
   return (
     <form>
       <input
         type="text"
         placeholder="Search..."
-        value={props.value}
-        onChange={(e) => props.handleInputChange(e.target.value)}
+        value={value}
+        onChange={handleInputChange}
       />
       <p>
-        <input
-          type="checkbox"
-          checked={props.stockOnly}
-          onChange={(e) => props.onInstockOnly(e.target.checked)}
-        />
+        <input type="checkbox" checked={stockOnly} onChange={onInstockOnly} />
         Only show products in stock
       </p>
     </form>

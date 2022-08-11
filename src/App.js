@@ -35,8 +35,8 @@ const PRODUCTS = [
   { category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7" },
 ];
 
-function App() {
+const App = () => {
   return <FilterableProductTable products={PRODUCTS} />;
-}
+};
 
 export default App;

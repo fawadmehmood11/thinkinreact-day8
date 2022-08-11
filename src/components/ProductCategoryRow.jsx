@@ -1,7 +1,7 @@
-const ProductCategoryRow = (props) => {
+const ProductCategoryRow = ({ category }) => {
   return (
     <tr>
-      <th colSpan="2"> {props.category} </th>
+      <th colSpan="2"> {category} </th>
     </tr>
   );
 };

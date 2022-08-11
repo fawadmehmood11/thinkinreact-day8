@@ -10,15 +10,15 @@ class FilterableProductTable extends Component {
     };
   }
 
-  handleInputChange = (val) => {
+  handleInputChange = (e) => {
     this.setState({
-      value: val,
+      value: e.target.value,
     });
   };
 
-  onInstockOnly = (inStock) => {
+  onInstockOnly = (e) => {
     this.setState({
-      stockOnly: inStock,
+      stockOnly: e.target.checked,
     });
   };
 
